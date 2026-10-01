@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Varun Maurya | Power BI & Data Analytics Freelancer</title>
+<meta name="description" content="Power BI & Data Analytics freelancer turning raw business data — Excel, CSV, SQL — into interactive dashboards, automated reports and clear decisions.">
+<meta property="og:title" content="Varun Maurya | Power BI & Data Analytics Freelancer">
+<meta property="og:description" content="Turning data into decisions — Power BI dashboards, MIS reporting, data cleaning and analytics for growing businesses.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================= TOKENS ============================= */
+:root{
+  --bg:#060810;
+  --bg-2:#0A0D18;
+  --surface:#0D111C;
+  --glass:rgba(255,255,255,.045);
+  --glass-brd:rgba(255,255,255,.09);
+  --text:#EFF2F8;
+  --muted:#8B93A8;
+  --muted-2:#5F6779;
+  --cyan:#38E7D2;
+  --purple:#9C7CFF;
+  --blue:#4C86FF;
+  --grad: linear-gradient(115deg, var(--cyan), var(--blue) 55%, var(--purple));
+  --radius-lg:22px;
+  --radius-md:14px;
+  --radius-sm:8px;
+  --maxw:1180px;
+  --safe-t:env(safe-area-inset-top,0px);
+  --safe-b:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:calc(78px + var(--safe-t));color-scheme:dark;}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:'Inter',sans-serif;line-height:1.55;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  padding-top:var(--safe-t);padding-bottom:var(--safe-b);
+}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:600;margin:0;letter-spacing:-.01em;}
+p{margin:0;color:var(--muted);}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+section{position:relative;padding:120px 0;}
+@media (max-width:720px){section{padding:80px 0;}}
+.eyebrow{font-size:.8rem;color:var(--cyan);font-weight:500;margin-bottom:14px;display:block;}
+.section-head{max-width:640px;margin-bottom:56px;}
+.section-head h2{font-size:clamp(1.9rem,4vw,2.6rem);}
+.section-head p{margin-top:14px;font-size:1.05rem;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:100px;
+  font-weight:600;font-size:.95rem;cursor:pointer;border:1px solid transparent;
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+  font-family:'Inter',sans-serif;
+}
+.btn-primary{background:var(--grad);color:#04070D;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px -8px rgba(76,134,255,.55);}
+.btn-ghost{background:var(--glass);border:1px solid var(--glass-brd);color:var(--text);}
+.btn-ghost:hover{background:rgba(255,255,255,.08);transform:translateY(-2px);}
+.btn-sm{padding:10px 18px;font-size:.85rem;}
+.glass{background:var(--glass);border:1px solid var(--glass-brd);border-radius:var(--radius-lg);backdrop-filter:blur(14px);}
+.mono{font-family:'JetBrains Mono',monospace;}
+
+/* ============================= NAV ============================= */
+#nav{
+  position:fixed;top:var(--safe-t);left:0;right:0;z-index:100;
+  padding:16px 24px;transition:background .3s,border-color .3s;
+  border-bottom:1px solid transparent;
+}
+#nav.scrolled{background:rgba(6,8,16,.75);backdrop-filter:blur(16px);border-color:var(--glass-brd);}
+#nav .row{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Space Grotesk';font-weight:700;font-size:1.15rem;display:flex;align-items:center;gap:10px;}
+.logo .dot{width:9px;height:9px;border-radius:50%;background:var(--grad);box-shadow:0 0 14px var(--cyan);}
+.nav-links{display:flex;gap:34px;list-style:none;margin:0;padding:0;}
+.nav-links a{font-size:.92rem;color:var(--muted);transition:color .2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{display:flex;align-items:center;gap:14px;}
+#burger{display:none;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer;}
+#mobile-menu{
+  display:none;position:fixed;inset:0;background:rgba(6,8,16,.98);z-index:99;
+  flex-direction:column;align-items:center;justify-content:center;gap:28px;
+}
+#mobile-menu a{font-size:1.3rem;font-family:'Space Grotesk';}
+#mobile-menu.open{display:flex;}
+@media (max-width:860px){
+  .nav-links,.nav-cta .btn-ghost{display:none;}
+  #burger{display:block;}
+}
+
+/* ============================= HERO ============================= */
+#hero{padding-top:180px;padding-bottom:100px;min-height:92vh;display:flex;align-items:center;position:relative;}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;position:relative;z-index:2;}
+@media (max-width:960px){.hero-grid{grid-template-columns:1fr;}}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:100px;
+  background:var(--glass);border:1px solid var(--glass-brd);font-size:.78rem;color:var(--muted);margin-bottom:26px;
+}
+.badge .pulse{width:7px;height:7px;border-radius:50%;background:#3BE07E;box-shadow:0 0 0 0 rgba(59,224,126,.6);animation:pulse 2s infinite;}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(59,224,126,.55);}70%{box-shadow:0 0 0 8px rgba(59,224,126,0);}100%{box-shadow:0 0 0 0 rgba(59,224,126,0);}}
+#hero h1{font-size:clamp(2.5rem,6vw,4.3rem);line-height:1.06;}
+#hero h1 .accent{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+#hero .sub{margin-top:24px;font-size:1.12rem;max-width:520px;}
+.hero-ctas{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap;}
+.stat-row{display:flex;gap:34px;margin-top:56px;flex-wrap:wrap;}
+.stat b{font-family:'Space Grotesk';font-size:1.7rem;display:block;}
+.stat span{font-size:.8rem;color:var(--muted-2);}
+.hero-visual{position:relative;height:460px;}
+.hero-visual svg{width:100%;height:100%;}
+.float-card{
+  position:absolute;padding:12px 16px;border-radius:12px;background:var(--glass);
+  border:1px solid var(--glass-brd);backdrop-filter:blur(10px);font-family:'JetBrains Mono',monospace;
+  font-size:.75rem;color:var(--muted);animation:float 7s ease-in-out infinite;
+}
+.float-card b{display:block;font-family:'Space Grotesk';color:var(--text);font-size:1rem;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+#hero-bg{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none;}
+#hero-bg svg{position:absolute;opacity:.35;}
+
+/* ============================= ABOUT ============================= */
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start;}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr;}}
+.profile-card{border-radius:var(--radius-lg);overflow:hidden;position:relative;aspect-ratio:4/5;background:var(--surface);border:1px solid var(--glass-brd);}
+.profile-card img{width:100%;height:100%;object-fit:cover;}
+.profile-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:var(--muted-2);font-size:.8rem;text-align:center;padding:20px;}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px;}
+@media (max-width:640px){.skills-grid{grid-template-columns:repeat(2,1fr);}}
+.skill-card{padding:18px 16px;border-radius:var(--radius-md);text-align:left;transition:transform .25s,border-color .25s;}
+.skill-card:hover{transform:translateY(-4px);border-color:rgba(56,231,210,.4);}
+.skill-card .ic{font-size:1.4rem;margin-bottom:10px;display:block;}
+.skill-card b{font-size:.88rem;font-weight:600;display:block;font-family:'Inter';}
+
+/* ============================= SERVICES ============================= */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+@media (max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:600px){.services-grid{grid-template-columns:1fr;}}
+.service-card{padding:28px;border-radius:var(--radius-md);transition:transform .25s,box-shadow .25s;}
+.service-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px -20px rgba(76,134,255,.35);}
+.service-card .ic{width:42px;height:42px;border-radius:10px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:16px;color:#04070D;}
+.service-card h3{font-size:1.05rem;margin-bottom:8px;}
+.service-card p{font-size:.9rem;}
+
+/* ============================= WORKFLOW ============================= */
+.flow{display:flex;flex-direction:column;gap:0;max-width:520px;margin:0 auto;}
+.flow-step{display:flex;align-items:center;gap:20px;padding:20px 0;position:relative;}
+.flow-step .idx{width:46px;height:46px;border-radius:50%;background:var(--glass);border:1px solid var(--glass-brd);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-size:.9rem;flex-shrink:0;position:relative;z-index:2;}
+.flow-step.active .idx{background:var(--grad);color:#04070D;border-color:transparent;}
+.flow-step .label b{display:block;font-family:'Space Grotesk';font-size:1.05rem;}
+.flow-step .label span{font-size:.85rem;}
+.flow-line{position:absolute;left:23px;top:46px;bottom:-20px;width:2px;background:linear-gradient(var(--glass-brd),var(--glass-brd));}
+.flow-step:last-child .flow-line{display:none;}
+
+/* ============================= SKILLS RADIAL ============================= */
+.radial-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;}
+@media (max-width:860px){.radial-grid{grid-template-columns:repeat(2,1fr);}}
+.radial-item{text-align:center;padding:22px 10px;border-radius:var(--radius-md);}
+.radial-item svg{width:88px;height:88px;}
+.radial-item b{display:block;margin-top:10px;font-size:.9rem;}
+.radial-item span{font-size:.75rem;color:var(--muted-2);}
+
+/* ============================= PROJECTS ============================= */
+.proj-controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:38px;}
+#search{
+  flex:1;min-width:220px;padding:13px 18px;border-radius:100px;background:var(--glass);
+  border:1px solid var(--glass-brd);color:var(--text);font-size:.9rem;outline:none;
+}
+#search::placeholder{color:var(--muted-2);}
+.filters{display:flex;gap:10px;flex-wrap:wrap;}
+.filter-btn{
+  padding:9px 18px;border-radius:100px;background:var(--glass);border:1px solid var(--glass-brd);
+  font-size:.82rem;color:var(--muted);cursor:pointer;transition:all .2s;white-space:nowrap;
+}
+.filter-btn.active{background:var(--grad);color:#04070D;border-color:transparent;font-weight:600;}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+@media (max-width:960px){.projects-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:640px){.projects-grid{grid-template-columns:1fr;}}
+.pcard{
+  border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;position:relative;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;opacity:0;transform:translateY(24px);
+}
+.pcard.show{opacity:1;transform:translateY(0);}
+.pcard:hover{transform:translateY(-8px);box-shadow:0 26px 50px -22px rgba(76,134,255,.4);}
+.pcard .thumb{aspect-ratio:16/10;background:var(--surface);position:relative;overflow:hidden;}
+.pcard .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.pcard:hover .thumb img{transform:scale(1.06);}
+.pcard .thumb-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--muted-2);font-size:.75rem;background:linear-gradient(135deg,var(--surface),var(--bg-2));}
+.featured-tag{position:absolute;top:12px;left:12px;background:var(--grad);color:#04070D;font-size:.68rem;font-weight:700;padding:5px 11px;border-radius:100px;z-index:2;}
+.pcard-body{padding:20px 22px 24px;}
+.pcard-cat{font-size:.72rem;color:var(--cyan);font-weight:600;margin-bottom:6px;display:block;}
+.pcard h3{font-size:1.08rem;margin-bottom:8px;}
+.pcard p{font-size:.86rem;margin-bottom:14px;}
+.tool-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
+.chip{font-size:.7rem;padding:4px 10px;border-radius:100px;background:rgba(255,255,255,.06);color:var(--muted);}
+.pcard .view-link{font-size:.85rem;font-weight:600;color:var(--text);display:inline-flex;align-items:center;gap:6px;transition:gap .2s;}
+.pcard:hover .view-link{gap:10px;}
+#no-results{text-align:center;padding:60px 0;color:var(--muted-2);display:none;}
+
+/* ============================= PROJECT MODAL ============================= */
+#modal-overlay{
+  position:fixed;inset:0;background:rgba(4,5,10,.82);backdrop-filter:blur(6px);
+  z-index:200;display:none;align-items:flex-start;justify-content:center;padding:40px 16px;overflow-y:auto;
+}
+#modal-overlay.open{display:flex;}
+#modal{
+  max-width:880px;width:100%;background:var(--bg-2);border:1px solid var(--glass-brd);
+  border-radius:var(--radius-lg);overflow:hidden;margin-bottom:40px;
+  animation:modalIn .3s ease;
+}
+@keyframes modalIn{from{opacity:0;transform:translateY(20px) scale(.98);}to{opacity:1;transform:translateY(0) scale(1);}}
+.modal-hero{aspect-ratio:16/8;background:var(--surface);position:relative;}
+.modal-hero img{width:100%;height:100%;object-fit:cover;}
+#modal-close{
+  position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:50%;
+  background:rgba(6,8,16,.7);border:1px solid var(--glass-brd);color:var(--text);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.1rem;z-index:5;
+}
+.modal-body{padding:36px 40px 48px;}
+@media (max-width:640px){.modal-body{padding:26px 20px 36px;}}
+.modal-body .pcard-cat{margin-bottom:10px;}
+.modal-body h2{font-size:1.7rem;margin-bottom:6px;}
+.modal-meta{display:flex;gap:18px;flex-wrap:wrap;margin:16px 0 26px;font-size:.82rem;color:var(--muted);}
+.modal-meta b{color:var(--text);}
+.modal-section{margin-bottom:28px;}
+.modal-section h4{font-size:.95rem;margin-bottom:10px;color:var(--text);}
+.modal-section p,.modal-section li{font-size:.92rem;color:var(--muted);}
+.modal-section ul{margin:0;padding-left:18px;}
+.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+@media (max-width:600px){.kpi-row{grid-template-columns:1fr;}}
+.kpi{padding:16px;border-radius:var(--radius-sm);text-align:center;}
+.kpi b{display:block;font-family:'Space Grotesk';font-size:1.3rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.kpi span{font-size:.72rem;color:var(--muted-2);}
+.shot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+@media (max-width:600px){.shot-grid{grid-template-columns:1fr;}}
+.shot-grid img{border-radius:var(--radius-sm);border:1px solid var(--glass-brd);aspect-ratio:16/10;object-fit:cover;}
+.embed-toggle{display:flex;gap:8px;margin-bottom:16px;}
+.embed-toggle button{padding:8px 16px;border-radius:100px;font-size:.78rem;background:var(--glass);border:1px solid var(--glass-brd);color:var(--muted);cursor:pointer;}
+.embed-toggle button.active{background:var(--grad);color:#04070D;}
+.embed-frame{width:100%;aspect-ratio:16/9;border:1px solid var(--glass-brd);border-radius:var(--radius-sm);overflow:hidden;background:var(--surface);}
+.embed-frame iframe{width:100%;height:100%;border:0;}
+.file-row{display:flex;gap:12px;flex-wrap:wrap;}
+.file-btn{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:var(--radius-sm);background:var(--glass);border:1px solid var(--glass-brd);font-size:.85rem;}
+.file-btn .ic{font-size:1.1rem;}
+.modal-cta{margin-top:34px;padding:26px;border-radius:var(--radius-md);text-align:center;background:linear-gradient(135deg,rgba(56,231,210,.08),rgba(156,124,255,.08));border:1px solid var(--glass-brd);}
+.modal-cta h4{font-size:1.15rem;margin-bottom:14px;}
+
+/* ============================= TESTIMONIALS ============================= */
+.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+@media (max-width:720px){.testi-grid{grid-template-columns:1fr;}}
+.testi-card{padding:28px;border-radius:var(--radius-md);}
+.testi-card p{font-size:.95rem;color:var(--text);opacity:.85;margin-bottom:20px;}
+.testi-person{display:flex;align-items:center;gap:12px;}
+.testi-avatar{width:42px;height:42px;border-radius:50%;object-fit:cover;background:var(--surface);}
+.testi-person b{font-size:.88rem;display:block;}
+.testi-person span{font-size:.76rem;}
+
+/* ============================= CONTACT ============================= */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+@media (max-width:860px){.contact-grid{grid-template-columns:1fr;}}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+@media (max-width:520px){.form-row{grid-template-columns:1fr;}}
+input,select,textarea{
+  width:100%;padding:13px 16px;border-radius:var(--radius-sm);background:var(--glass);
+  border:1px solid var(--glass-brd);color:var(--text);font-size:.9rem;font-family:'Inter';outline:none;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--cyan);}
+label{font-size:.78rem;color:var(--muted-2);margin-bottom:6px;display:block;}
+textarea{resize:vertical;min-height:110px;}
+.contact-info{display:flex;flex-direction:column;gap:18px;}
+.info-line{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:var(--radius-md);}
+.info-line .ic{width:36px;height:36px;border-radius:9px;background:var(--grad);display:flex;align-items:center;justify-content:center;color:#04070D;flex-shrink:0;}
+.info-line b{display:block;font-size:.9rem;}
+.info-line span{font-size:.8rem;}
+#form-success{display:none;padding:18px;border-radius:var(--radius-sm);background:rgba(59,224,126,.1);border:1px solid rgba(59,224,126,.35);color:#7CF0A6;font-size:.88rem;margin-top:14px;}
+
+/* ============================= FOOTER ============================= */
+footer{padding:60px 0 calc(40px + var(--safe-b));border-top:1px solid var(--glass-brd);}
+.footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+.footer-social{display:flex;gap:16px;}
+.footer-social a{font-size:.85rem;color:var(--muted);}
+.footer-social a:hover{color:var(--cyan);}
+.footer-bottom{margin-top:30px;padding-top:24px;border-top:1px solid var(--glass-brd);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.78rem;color:var(--muted-2);}
+
+/* mobile hire button */
+#mobile-hire{position:fixed;bottom:calc(20px + var(--safe-b));right:20px;z-index:80;display:none;}
+@media (max-width:720px){#mobile-hire{display:block;}}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.show{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav id="nav">
+  <div class="row">
+    <a href="#hero" class="logo"><span class="dot"></span> VARUN MAURYA</a>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-ghost btn-sm">Work With Me</a>
+      <button id="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</nav>
+<div id="mobile-menu">
+  <a href="#hero">Home</a>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#services">Services</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section id="hero">
+  <div id="hero-bg"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge"><span class="pulse"></span> Available for Freelance Projects</span>
+      <h1>Turning Data Into<br><span class="accent">Decisions.</span></h1>
+      <p class="sub">Power BI & Data Analytics freelancer helping businesses transform Excel, CSV and business data into interactive dashboards, automated reports and actionable insights.</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-primary">View My Projects</a>
+        <a href="#contact" class="btn btn-ghost">Work With Me</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b data-count="10">0</b><span>Projects</span></div>
+        <div class="stat"><b>Power BI</b><span>Core tool</span></div>
+        <div class="stat"><b>Excel</b><span>Core tool</span></div>
+        <div class="stat"><b>SQL</b><span>Core tool</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#38E7D2"/><stop offset="100%" stop-color="#9C7CFF"/>
+          </linearGradient>
+        </defs>
+        <g opacity=".5" stroke="url(#lg1)" stroke-width="1">
+          <line x1="30" y1="370" x2="30" y2="30"/><line x1="30" y1="370" x2="370" y2="370"/>
+          <polyline points="60,300 110,260 160,310 210,180 260,220 310,120 360,150" fill="none" stroke-width="2"/>
+        </g>
+        <g fill="url(#lg1)">
+          <circle cx="60" cy="300" r="4"/><circle cx="110" cy="260" r="4"/><circle cx="160" cy="310" r="4"/>
+          <circle cx="210" cy="180" r="4"/><circle cx="260" cy="220" r="4"/><circle cx="310" cy="120" r="4"/><circle cx="360" cy="150" r="4"/>
+        </g>
+      </svg>
+      <div class="float-card" style="top:6%;left:2%;animation-delay:0s;"><b>₹42.8L</b>Revenue tracked</div>
+      <div class="float-card" style="top:38%;right:0%;animation-delay:1.4s;"><b>+18.4%</b>Growth MoM</div>
+      <div class="float-card" style="bottom:12%;left:10%;animation-delay:2.6s;"><b>96%</b>Report accuracy</div>
+      <div class="float-card" style="bottom:2%;right:8%;animation-delay:.8s;"><b>DAX</b>Automated KPIs</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="profile-card reveal">
+        <img src="assets/profile.jpg" alt="Varun Maurya" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="profile-fallback" style="display:none;">Add your photo at<br><span class="mono">assets/profile.jpg</span></div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">About</span>
+        <h2>I build dashboards that businesses actually use.</h2>
+        <p style="margin-top:16px;font-size:1.02rem;">I'm a data analyst working across Power BI, SQL and Python — trained through a Data Science program and a dedicated Power BI certification. I take messy Excel exports and raw business data and turn them into dashboards that owners open every morning, not once and forget.</p>
+        <div class="skills-grid">
+          <div class="skill-card glass"><span class="ic">📊</span><b>Power BI</b></div>
+          <div class="skill-card glass"><span class="ic">📈</span><b>Advanced Excel</b></div>
+          <div class="skill-card glass"><span class="ic">🗄️</span><b>SQL / MySQL</b></div>
+          <div class="skill-card glass"><span class="ic">🐍</span><b>Python</b></div>
+          <div class="skill-card glass"><span class="ic">🧮</span><b>Pandas & NumPy</b></div>
+          <div class="skill-card glass"><span class="ic">🔗</span><b>Power Query</b></div>
+          <div class="skill-card glass"><span class="ic">ƒx</span><b>DAX</b></div>
+          <div class="skill-card glass"><span class="ic">🧹</span><b>Data Cleaning</b></div>
+          <div class="skill-card glass"><span class="ic">📋</span><b>MIS Reporting</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Services</span>
+      <h2>What I can build for your business</h2>
+      <p>From a single cleaned spreadsheet to a full automated reporting system.</p>
+    </div>
+    <div class="services-grid" id="services-grid"></div>
+  </div>
+</section>
+
+<!-- ================= WORKFLOW ================= -->
+<section id="workflow">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin:0 auto 56px;text-align:center;">
+      <span class="eyebrow">Process</span>
+      <h2>From Raw Data to Business Insight</h2>
+    </div>
+    <div class="flow" id="flow-list"></div>
+  </div>
+</section>
+
+<!-- ================= SKILLS RADIAL ================= -->
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Proficiency</span>
+      <h2>Tools I work with daily</h2>
+    </div>
+    <div class="radial-grid" id="radial-grid"></div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Projects</span>
+      <h2>Selected work</h2>
+      <p>Every project below is a template — swap in your real screenshots, files and numbers in the <span class="mono">PROJECTS</span> array at the top of this file's script.</p>
+    </div>
+    <div class="proj-controls">
+      <input id="search" type="text" placeholder="Search by name, tool or category...">
+      <div class="filters" id="filters"></div>
+    </div>
+    <div class="projects-grid" id="projects-grid"></div>
+    <div id="no-results">No projects match your search.</div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section id="testimonials" style="display:none;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Testimonials</span>
+      <h2>What clients say</h2>
+    </div>
+    <div class="testi-grid" id="testi-grid"></div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin:0 auto 56px;text-align:center;">
+      <span class="eyebrow">Contact</span>
+      <h2>Have Data? Let's Build Something Useful.</h2>
+    </div>
+    <div class="contact-grid">
+      <form id="request-form" class="glass" style="padding:32px;border-radius:var(--radius-lg);">
+        <div class="form-row">
+          <div><label>Name</label><input required name="name" type="text" placeholder="Your name"></div>
+          <div><label>Email</label><input required name="email" type="email" placeholder="you@company.com"></div>
+        </div>
+        <div class="form-row">
+          <div><label>Company</label><input name="company" type="text" placeholder="Optional"></div>
+          <div><label>Project Type</label>
+            <select name="type">
+              <option>Power BI Dashboard</option>
+              <option>Excel Dashboard</option>
+              <option>Data Cleaning</option>
+              <option>MIS Reporting</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div><label>Budget</label><input name="budget" type="text" placeholder="e.g. ₹10,000 - ₹25,000"></div>
+          <div><label>Deadline</label><input name="deadline" type="text" placeholder="e.g. 2 weeks"></div>
+        </div>
+        <label>Message</label>
+        <textarea name="message" placeholder="Tell me about your data and what you need..."></textarea>
+        <label style="margin-top:14px;">Attachment (Excel / CSV / PDF / Image)</label>
+        <input id="attach-input" name="attachment" type="file" accept=".xlsx,.xls,.csv,.pdf,image/*">
+        <button type="submit" class="btn btn-primary" style="margin-top:20px;width:100%;justify-content:center;">Send Project Request</button>
+        <div id="form-success"></div>
+        <p style="font-size:.72rem;margin-top:10px;color:var(--muted-2);">Clicking send opens your email app with everything pre-filled, addressed to <span class="mono" id="c-email-note"></span>. If you attached a file, please attach it once more in the email window that opens — browsers don't allow websites to attach files to an email automatically.</p>
+      </form>
+      <div class="contact-info">
+        <div class="info-line glass"><span class="ic">✉️</span><div><b>Email</b><span id="c-email">your@email.com</span></div></div>
+        <div class="info-line glass"><span class="ic">📞</span><div><b>Phone</b><span id="c-phone">+91 00000 00000</span></div></div>
+        <div class="info-line glass"><span class="ic">💼</span><div><b>LinkedIn</b><span>linkedin.com/in/varun-maurya-913444331</span></div></div>
+        <div class="info-line glass"><span class="ic">🐙</span><div><b>GitHub</b><span id="c-github">github.com/yourhandle</span></div></div>
+        <div class="info-line glass"><span class="ic">💬</span><div><b>WhatsApp</b><span id="c-whatsapp">+91 00000 00000</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <div>
+        <div class="logo"><span class="dot"></span> VARUN MAURYA</div>
+        <p style="margin-top:8px;">Power BI & Data Analytics Freelancer — Turning Data Into Decisions.</p>
+      </div>
+      <div class="footer-social">
+        <a href="#">Email</a><a href="https://linkedin.com/in/varun-maurya-913444331" target="_blank" rel="noopener">LinkedIn</a><a href="#">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Varun Maurya. All rights reserved.</span>
+      <span>Built with Power BI, SQL & Python.</span>
+    </div>
+  </div>
+</footer>
+
+<a href="#contact" class="btn btn-primary" id="mobile-hire">Hire Me</a>
+
+<!-- ================= PROJECT MODAL ================= -->
+<div id="modal-overlay">
+  <div id="modal"></div>
+</div>
+
+<script>
+/* ================================================================
+   EDIT EVERYTHING BELOW THIS LINE TO CUSTOMIZE THE SITE.
+   No other part of this file needs to change to add a project.
+================================================================= */
+
+// ---- Site-wide contact settings ----
+const SETTINGS = {
+  email: "mauryavarun016@gmail.com",
+  github: "github.com/yourhandle",
+  whatsapp: "+91 87269 07810",
+  phone: "+91 87269 07810",
+};
+
+// ---- Services ----
+const SERVICES = [
+  {icon:"📊", title:"Power BI Dashboard Development", desc:"Interactive, multi-page dashboards built around the metrics that actually drive your decisions."},
+  {icon:"📗", title:"Excel Dashboard Development", desc:"Pivot-powered dashboards and trackers for teams that live in Excel."},
+  {icon:"🧹", title:"Data Cleaning", desc:"Messy exports, inconsistent formats and duplicates turned into analysis-ready data."},
+  {icon:"🔍", title:"Data Analysis", desc:"Finding the trends, outliers and root causes hiding in your business data."},
+  {icon:"📋", title:"MIS Reporting", desc:"Recurring management reports, automated and formatted consistently every time."},
+  {icon:"ƒx", title:"DAX Development", desc:"Custom measures, KPIs and time-intelligence calculations inside Power BI."},
+  {icon:"🔗", title:"Power Query Transformation", desc:"Repeatable ETL steps that refresh cleanly every time your data updates."},
+  {icon:"🗄️", title:"SQL Data Analysis", desc:"Querying and joining relational data to answer specific business questions."},
+  {icon:"⚙️", title:"Dashboard Automation", desc:"Scheduled refreshes and automated pipelines so reports update themselves."},
+];
+
+// ---- Workflow steps ----
+const FLOW = ["Raw Data","Data Cleaning","Data Transformation","Data Modeling","DAX","Visualization","Business Insights"];
+
+// ---- Skill proficiency (set these yourself — kept honest, not exaggerated) ----
+const RADIAL_SKILLS = [
+  {name:"Power BI", pct:85},
+  {name:"Excel", pct:90},
+  {name:"SQL", pct:75},
+  {name:"Python", pct:70},
+  {name:"DAX", pct:78},
+  {name:"Power Query", pct:80},
+  {name:"Pandas", pct:65},
+  {name:"MIS Reporting", pct:88},
+];
+
+// ---- Testimonials — leave empty [] to auto-hide the section ----
+const TESTIMONIALS = [
+  // { name:"Client Name", role:"Owner", company:"Company Pvt Ltd", photo:"assets/testimonials/client1.jpg",
+  //   text:"Varun turned three years of messy sales spreadsheets into a dashboard we now check every morning." },
+];
+
+// ---- Filter categories shown as buttons ----
+const CATEGORIES = ["All","Power BI","Excel","SQL","Python","MIS","Sales","Finance","HR","Inventory"];
+
+// ---- PROJECTS ----
+// Each project's files live in assets/projects/<project-folder>/ next to this index.html.
+// Leave embedUrl empty ("") to show screenshots instead of a live embed.
+const PROJECTS = [
+  {
+    "cover": "assets/projects/store-sales-pipeline-mysql/screenshot-1.png",
+    "screenshots": [
+      "assets/projects/store-sales-pipeline-mysql/screenshot-1.png",
+      "assets/projects/store-sales-pipeline-mysql/screenshot-2.png"
+    ],
+    "embedUrl": "",
+    "pbix": "assets/projects/store-sales-pipeline-mysql/store-sales-pipeline-mysql.pbix",
+    "pdf": "",
+    "csv": "",
+    "demoUrl": "",
+    "githubUrl": "",
+    "client": "Personal / portfolio project",
+    "duration": "—",
+    "id": "store-sales-pipeline-mysql",
+    "title": "Store Sales Analysis Pipeline (MySQL → Power BI)",
+    "category": "SQL",
+    "tags": [
+      "Power BI",
+      "SQL",
+      "Sales"
+    ],
+    "tools": [
+      "MySQL",
+      "Power BI",
+      "DAX"
+    ],
+    "featured": true,
+    "shortDesc": "End-to-end store sales dashboard: sales data stored in MySQL and reported in Power BI by category, product, payment method and day.",
+    "problem": "Store sales data needed to be moved out of raw tables into one dashboard that shows which categories and products drive revenue and profit.",
+    "dataSource": "Store sales data (1,000 invoices) stored in a MySQL database and connected to Power BI.",
+    "cleaning": "Data pulled from MySQL into Power BI and prepared in Power Query before modelling.",
+    "dax": "Measures for total orders, total quantity, total revenue and total profit, sliced by category, product, payment method, month and day.",
+    "kpis": [
+      {
+        "val": "1,000",
+        "label": "Total Orders"
+      },
+      {
+        "val": "4,523",
+        "label": "Units Sold"
+      },
+      {
+        "val": "420K",
+        "label": "Total Revenue"
+      },
+      {
+        "val": "73K",
+        "label": "Total Profit"
+      }
+    ],
+    "insights": [
+      "Grocery is the biggest category: about 172K revenue and 221 orders.",
+      "Wheat Flour 5kg is the top product by revenue (about 64K), followed by Rice 5kg and Cooking Oil 1L.",
+      "Revenue is spread almost evenly across the four payment methods (about 24–26% each)."
+    ],
+    "impact": "Turns raw store transactions into a single view of what sells, what earns profit and how customers pay."
+  },
+  {
+    "cover": "assets/projects/real-estate-lead-analysis/screenshot-1.png",
+    "screenshots": [
+      "assets/projects/real-estate-lead-analysis/screenshot-1.png",
+      "assets/projects/real-estate-lead-analysis/screenshot-2.png",
+      "assets/projects/real-estate-lead-analysis/screenshot-3.png"
+    ],
+    "embedUrl": "",
+    "pbix": "assets/projects/real-estate-lead-analysis/real-estate-lead-analysis.pbix",
+    "pdf": "",
+    "csv": "",
+    "demoUrl": "",
+    "githubUrl": "",
+    "client": "Personal / portfolio project",
+    "duration": "—",
+    "id": "real-estate-lead-analysis",
+    "title": "Real Estate Lead, Marketing & Sales Analysis",
+    "category": "Sales",
+    "tags": [
+      "Power BI",
+      "Sales"
+    ],
+    "tools": [
+      "Power BI",
+      "DAX",
+      "Power Query"
+    ],
+    "featured": true,
+    "shortDesc": "Three-page Power BI report covering customer & competitor analysis, marketing & lead generation, and sales & property performance for Delhi NCR real estate.",
+    "problem": "Lead, marketing and sales data for real estate projects was spread across many fields, making it hard to see which sources, locations and property types actually convert into bookings.",
+    "dataSource": "Real estate leads dataset (750 leads) with location, property type, lead source, campaign, competitor and sales agent fields.",
+    "cleaning": "Data prepared in Power Query before building the model and report pages.",
+    "dax": "Measures for total leads, bookings, revenue, cost per lead, marketing spend and marketing ROI, with slicers for location, property type, lead source, campaign and date.",
+    "kpis": [
+      {
+        "val": "750",
+        "label": "Total Leads"
+      },
+      {
+        "val": "126",
+        "label": "Total Bookings"
+      },
+      {
+        "val": "5.05K",
+        "label": "Cost Per Lead"
+      },
+      {
+        "val": "12.55",
+        "label": "Marketing ROI"
+      }
+    ],
+    "insights": [
+      "Google Ads brought the most bookings (35 of 126), ahead of Meta Ads (19) and 99acres (16).",
+      "Noida has the most leads (215) and the highest revenue by location.",
+      "Apartments generate the most revenue among property types, followed by villas and offices.",
+      "Monthly bookings dipped to their lowest in June."
+    ],
+    "impact": "Shows which channels, locations and property types deserve more marketing budget and sales-team focus."
+  },
+  {
+    "cover": "assets/projects/global-airplane-crashes-analysis/screenshot-1.png",
+    "screenshots": [
+      "assets/projects/global-airplane-crashes-analysis/screenshot-1.png",
+      "assets/projects/global-airplane-crashes-analysis/screenshot-2.png"
+    ],
+    "embedUrl": "",
+    "pbix": "assets/projects/global-airplane-crashes-analysis/global-airplane-crashes-analysis.pbix",
+    "pdf": "",
+    "csv": "",
+    "demoUrl": "",
+    "githubUrl": "",
+    "client": "Personal / portfolio project",
+    "duration": "—",
+    "id": "global-airplane-crashes-analysis",
+    "title": "Global Airplane Crashes & Fatalities Analysis (1908–2005)",
+    "category": "Power BI",
+    "tags": [
+      "Power BI"
+    ],
+    "tools": [
+      "Power BI",
+      "DAX"
+    ],
+    "featured": false,
+    "shortDesc": "Historical analysis of 5,268 airplane crashes: trend over time, deadliest operators and crash counts by aircraft type.",
+    "problem": "A century of crash records needed to be summarised into a clear view of how crashes and fatalities changed over time and where they concentrated.",
+    "dataSource": "Global airplane crashes and fatalities dataset covering 1908–2005.",
+    "cleaning": "Data prepared in Power Query before modelling.",
+    "dax": "Measures for total crashes, total fatalities and fatality rate, filtered by location and year.",
+    "kpis": [
+      {
+        "val": "5,268",
+        "label": "Total Crashes"
+      },
+      {
+        "val": "105K",
+        "label": "Total Fatalities"
+      },
+      {
+        "val": "0.73",
+        "label": "Fatality Rate"
+      }
+    ],
+    "insights": [
+      "Yearly crash counts climb through the 1940s–1970s and peak at around 100 in the early 1970s.",
+      "Aeroflot has the highest fatality total (about 7.2K), followed by US military operators (about 3.7K).",
+      "The Douglas DC-3 is involved in far more crashes than any other aircraft type (over 300)."
+    ],
+    "impact": "Gives a fast, filterable picture of aviation safety history by year, operator and aircraft type."
+  },
+  {
+    "cover": "assets/projects/sales-pipeline-google-sheet/screenshot-1.png",
+    "screenshots": [
+      "assets/projects/sales-pipeline-google-sheet/screenshot-1.png",
+      "assets/projects/sales-pipeline-google-sheet/screenshot-2.png"
+    ],
+    "embedUrl": "",
+    "pbix": "assets/projects/sales-pipeline-google-sheet/sales-pipeline-google-sheet.pbix",
+    "pdf": "",
+    "csv": "",
+    "demoUrl": "",
+    "githubUrl": "",
+    "client": "Personal / portfolio project",
+    "duration": "—",
+    "id": "sales-pipeline-google-sheet",
+    "title": "Sales Analysis Pipeline (Google Sheets → Power BI)",
+    "category": "Sales",
+    "tags": [
+      "Power BI",
+      "Sales"
+    ],
+    "tools": [
+      "Google Sheets",
+      "Power BI",
+      "DAX"
+    ],
+    "featured": false,
+    "shortDesc": "Store sales dashboard fed by a Google Sheet, so new entries flow into Power BI without manual re-work.",
+    "problem": "Sales were being recorded in a Google Sheet and needed to be reported automatically instead of rebuilding charts by hand.",
+    "dataSource": "Sales entries maintained in Google Sheets and connected live to Power BI.",
+    "cleaning": "Sheet data cleaned and typed in Power Query before reporting.",
+    "dax": "Measures for total revenue, total profit, total cost price and total orders, analysed by payment mode, district, customer and month.",
+    "kpis": [
+      {
+        "val": "44K",
+        "label": "Total Revenue"
+      },
+      {
+        "val": "262",
+        "label": "Total Orders"
+      },
+      {
+        "val": "37K",
+        "label": "Total Cost Price"
+      },
+      {
+        "val": "7,542",
+        "label": "Total Profit"
+      }
+    ],
+    "insights": [
+      "About 60% of revenue and 69% of profit come through one payment mode.",
+      "Raybareli is the top district by profit.",
+      "A single customer accounts for most of the profit."
+    ],
+    "impact": "Shows how a simple Google Sheet can drive an auto-updating Power BI report."
+  }
+];
+
+/* ================================================================
+   NOTHING BELOW THIS LINE NEEDS EDITING FOR NORMAL USE.
+================================================================= */
+
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('c-email').textContent = SETTINGS.email;
+document.getElementById('c-phone').textContent = SETTINGS.phone;
+document.getElementById('c-github').textContent = SETTINGS.github;
+document.getElementById('c-whatsapp').textContent = SETTINGS.whatsapp;
+// make phone/whatsapp lines clickable
+document.getElementById('c-phone').innerHTML = `<a href="tel:${SETTINGS.phone.replace(/\s+/g,'')}">${SETTINGS.phone}</a>`;
+document.getElementById('c-whatsapp').innerHTML = `<a href="https://wa.me/${SETTINGS.whatsapp.replace(/\D/g,'')}" target="_blank" rel="noopener">${SETTINGS.whatsapp}</a>`;
+document.getElementById('c-email').innerHTML = `<a href="mailto:${SETTINGS.email}">${SETTINGS.email}</a>`;
+
+// nav scroll state
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', ()=>{ nav.classList.toggle('scrolled', window.scrollY > 20); });
+
+// mobile menu
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobile-menu');
+burger.addEventListener('click', ()=> mobileMenu.classList.toggle('open'));
+mobileMenu.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> mobileMenu.classList.remove('open')));
+
+// hero background: floating grid + nodes (lightweight SVG, no external libs)
+(function heroBg(){
+  const el = document.getElementById('hero-bg');
+  let svg = '<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">';
+  for(let i=0;i<7;i++){
+    const x = Math.random()*1200, y = Math.random()*800, r = 40+Math.random()*90;
+    svg += `<circle cx="${x}" cy="${y}" r="${r}" fill="none" stroke="#38E7D2" stroke-opacity="0.08" stroke-width="1"/>`;
+  }
+  svg += '</svg>';
+  el.innerHTML = svg;
+})();
+
+// animated stat counter
+document.querySelectorAll('[data-count]').forEach(el=>{
+  const target = parseInt(el.dataset.count,10);
+  let cur = 0;
+  const step = Math.max(1, Math.round(target/40));
+  const t = setInterval(()=>{
+    cur += step;
+    if(cur>=target){ cur=target; clearInterval(t); }
+    el.textContent = cur + "+";
+  }, 40);
+});
+
+// services
+const servicesGrid = document.getElementById('services-grid');
+SERVICES.forEach(s=>{
+  servicesGrid.innerHTML += `<div class="service-card glass reveal">
+    <div class="ic">${s.icon}</div><h3>${s.title}</h3><p>${s.desc}</p>
+  </div>`;
+});
+
+// workflow
+const flowList = document.getElementById('flow-list');
+FLOW.forEach((f,i)=>{
+  flowList.innerHTML += `<div class="flow-step reveal ${i===0?'active':''}">
+    <div class="idx">${i+1}<div class="flow-line"></div></div>
+    <div class="label"><b>${f}</b><span>${i===0?'Where every project starts':''}</span></div>
+  </div>`;
+});
+
+// radial skills
+const radialGrid = document.getElementById('radial-grid');
+RADIAL_SKILLS.forEach(s=>{
+  const r = 34, c = 2*Math.PI*r, offset = c - (s.pct/100)*c;
+  radialGrid.innerHTML += `<div class="radial-item glass reveal">
+    <svg viewBox="0 0 80 80">
+      <circle cx="40" cy="40" r="${r}" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="7"/>
+      <circle cx="40" cy="40" r="${r}" fill="none" stroke="url(#lg1)" stroke-width="7" stroke-linecap="round"
+        stroke-dasharray="${c}" stroke-dashoffset="${offset}" transform="rotate(-90 40 40)"/>
+      <text x="40" y="45" text-anchor="middle" fill="#EFF2F8" font-size="16" font-family="Space Grotesk">${s.pct}%</text>
+    </svg>
+    <b>${s.name}</b>
+  </div>`;
+});
+
+// testimonials
+if(TESTIMONIALS.length){
+  document.getElementById('testimonials').style.display = 'block';
+  const tg = document.getElementById('testi-grid');
+  TESTIMONIALS.forEach(t=>{
+    tg.innerHTML += `<div class="testi-card glass reveal">
+      <p>"${t.text}"</p>
+      <div class="testi-person">
+        <img class="testi-avatar" src="${t.photo}" onerror="this.style.visibility='hidden'">
+        <div><b>${t.name}</b><span>${t.role} · ${t.company}</span></div>
+      </div>
+    </div>`;
+  });
+}
+
+// filters
+const filtersEl = document.getElementById('filters');
+CATEGORIES.forEach(cat=>{
+  const btn = document.createElement('button');
+  btn.className = 'filter-btn' + (cat==='All' ? ' active' : '');
+  btn.textContent = cat;
+  btn.dataset.cat = cat;
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = cat;
+    renderProjects();
+  });
+  filtersEl.appendChild(btn);
+});
+
+let currentFilter = 'All';
+let currentSearch = '';
+
+function projectMatches(p){
+  const inCat = currentFilter==='All' || p.category===currentFilter || p.tags.includes(currentFilter) || p.tools.includes(currentFilter);
+  const q = currentSearch.toLowerCase();
+  const inSearch = !q || p.title.toLowerCase().includes(q) || p.category.toLowerCase().includes(q) ||
+    p.tools.some(t=>t.toLowerCase().includes(q)) || p.tags.some(t=>t.toLowerCase().includes(q));
+  return inCat && inSearch;
+}
+
+function renderProjects(){
+  const grid = document.getElementById('projects-grid');
+  const list = PROJECTS.filter(projectMatches).sort((a,b)=> (b.featured?1:0)-(a.featured?1:0));
+  grid.innerHTML = '';
+  document.getElementById('no-results').style.display = list.length ? 'none' : 'block';
+  list.forEach((p,i)=>{
+    const card = document.createElement('div');
+    card.className = 'pcard glass';
+    card.innerHTML = `
+      ${p.featured ? '<span class="featured-tag">Featured</span>' : ''}
+      <div class="thumb">
+        <img src="${p.cover}" alt="${p.title}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="thumb-fallback" style="display:none;">Add cover image at<br>${p.cover}</div>
+      </div>
+      <div class="pcard-body">
+        <span class="pcard-cat">${p.category}</span>
+        <h3>${p.title}</h3>
+        <p>${p.shortDesc}</p>
+        <div class="tool-chips">${p.tools.map(t=>`<span class="chip">${t}</span>`).join('')}</div>
+        <span class="view-link">View Project →</span>
+      </div>`;
+    card.addEventListener('click', ()=> openModal(p));
+    grid.appendChild(card);
+    setTimeout(()=> card.classList.add('show'), 60*i);
+  });
+}
+renderProjects();
+
+document.getElementById('search').addEventListener('input', (e)=>{
+  currentSearch = e.target.value;
+  renderProjects();
+});
+
+// modal
+const overlay = document.getElementById('modal-overlay');
+const modal = document.getElementById('modal');
+
+function fileBtn(icon, label, href){
+  if(!href) return '';
+  return `<a class="file-btn" href="${href}" download><span class="ic">${icon}</span>${label}</a>`;
+}
+
+function openModal(p){
+  const embedBlock = p.embedUrl ? `
+    <div class="embed-toggle">
+      <button class="active" data-mode="live">Live Dashboard</button>
+      <button data-mode="preview">Dashboard Preview</button>
+    </div>
+    <div id="embed-live" class="embed-frame"><iframe src="${p.embedUrl}" allowfullscreen></iframe></div>
+    <div id="embed-preview" class="shot-grid" style="display:none;">
+      ${p.screenshots.map(s=>`<img src="${s}" onerror="this.style.display='none'">`).join('')}
+    </div>` : `
+    <div class="shot-grid">${p.screenshots.map(s=>`<img src="${s}" onerror="this.style.display='none'">`).join('')}</div>`;
+
+  modal.innerHTML = `
+    <div class="modal-hero">
+      <img src="${p.cover}" alt="${p.title}" onerror="this.style.display='none'">
+      <button id="modal-close">✕</button>
+    </div>
+    <div class="modal-body">
+      <span class="pcard-cat">${p.category}</span>
+      <h2>${p.title}</h2>
+      <div class="modal-meta">
+        <span><b>Client:</b> ${p.client}</span>
+        <span><b>Duration:</b> ${p.duration}</span>
+        <span><b>Tools:</b> ${p.tools.join(', ')}</span>
+      </div>
+
+      <div class="modal-section"><h4>Project Overview</h4><p>${p.shortDesc}</p></div>
+      <div class="modal-section"><h4>Business Problem</h4><p>${p.problem}</p></div>
+      <div class="modal-section"><h4>Data Source</h4><p>${p.dataSource}</p></div>
+      <div class="modal-section"><h4>Data Cleaning Process</h4><p>${p.cleaning}</p></div>
+      <div class="modal-section"><h4>DAX / Calculations</h4><p>${p.dax}</p></div>
+
+      <div class="modal-section">
+        <h4>Dashboard</h4>
+        ${embedBlock}
+      </div>
+
+      <div class="modal-section">
+        <h4>Key KPIs</h4>
+        <div class="kpi-row">${p.kpis.map(k=>`<div class="kpi glass"><b>${k.val}</b><span>${k.label}</span></div>`).join('')}</div>
+      </div>
+
+      <div class="modal-section"><h4>Key Insights</h4><ul>${p.insights.map(i=>`<li>${i}</li>`).join('')}</ul></div>
+      <div class="modal-section"><h4>Business Impact</h4><p>${p.impact}</p></div>
+
+      <div class="modal-section">
+        <h4>Power BI Project File</h4>
+        <div class="file-row">
+          ${fileBtn('📊','Download PBIX', p.pbix)}
+          ${fileBtn('📄','Download PDF Report', p.pdf)}
+          ${fileBtn('📗','Sample CSV', p.csv)}
+          ${!p.pbix ? '<span class="file-btn" style="opacity:.5;">📊 PBIX not attached — add one via the request form or link a Power BI embed URL.</span>' : ''}
+        </div>
+      </div>
+
+      <div class="modal-cta">
+        <h4>Interested in a similar dashboard?</h4>
+        <a href="#contact" class="btn btn-primary" id="modal-cta-btn">Request a Dashboard</a>
+      </div>
+    </div>`;
+
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  document.getElementById('modal-cta-btn').addEventListener('click', closeModal);
+
+  if(p.embedUrl){
+    const liveBtn = modal.querySelector('[data-mode="live"]');
+    const prevBtn = modal.querySelector('[data-mode="preview"]');
+    liveBtn.addEventListener('click', ()=>{
+      liveBtn.classList.add('active'); prevBtn.classList.remove('active');
+      document.getElementById('embed-live').style.display='block';
+      document.getElementById('embed-preview').style.display='none';
+    });
+    prevBtn.addEventListener('click', ()=>{
+      prevBtn.classList.add('active'); liveBtn.classList.remove('active');
+      document.getElementById('embed-live').style.display='none';
+      document.getElementById('embed-preview').style.display='grid';
+    });
+  }
+}
+function closeModal(){
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+overlay.addEventListener('click', (e)=>{ if(e.target === overlay) closeModal(); });
+document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+
+// contact form -> opens a pre-filled mailto to SETTINGS.email
+// (a static site can't send email or attach files on its own — this is the
+// no-backend way to get every submission straight into your inbox; the
+// visitor's own email app does the actual sending when they hit Send)
+document.getElementById('c-email-note').textContent = SETTINGS.email;
+
+document.getElementById('request-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  const f = this;
+  const name = f.name.value.trim();
+  const email = f.email.value.trim();
+  const company = f.company.value.trim();
+  const type = f.type.value;
+  const budget = f.budget.value.trim();
+  const deadline = f.deadline.value.trim();
+  const message = f.message.value.trim();
+  const fileInput = document.getElementById('attach-input');
+  const fileName = (fileInput.files && fileInput.files[0]) ? fileInput.files[0].name : '';
+
+  const subject = `New Project Request from ${name || 'Website Visitor'}`;
+  let body = `New project request from your portfolio site:\n\n`;
+  body += `Name: ${name}\n`;
+  body += `Email: ${email}\n`;
+  if(company) body += `Company: ${company}\n`;
+  body += `Project Type: ${type}\n`;
+  if(budget) body += `Budget: ${budget}\n`;
+  if(deadline) body += `Deadline: ${deadline}\n`;
+  body += `\nMessage:\n${message || '(no message)'}\n`;
+  if(fileName){
+    body += `\nAttachment selected on site: ${fileName}\n(Please attach "${fileName}" to this email again before sending — the website cannot attach it automatically.)\n`;
+  }
+
+  const mailtoLink = `mailto:${SETTINGS.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = mailtoLink;
+
+  const successEl = document.getElementById('form-success');
+  successEl.textContent = fileName
+    ? `Your email app should now open, pre-filled and addressed to me. Please attach "${fileName}" again before hitting Send.`
+    : `Your email app should now open, pre-filled and addressed to me. Just hit Send there.`;
+  successEl.style.display = 'block';
+  f.reset();
+});
+
+// scroll reveal
+const revealEls = document.querySelectorAll('.reveal, .pcard');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('show'); io.unobserve(en.target); } });
+}, {threshold:0.15});
+revealEls.forEach(el=> io.observe(el));
+</script>
+</body>
+</html>
